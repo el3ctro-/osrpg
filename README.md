@@ -1,4 +1,0 @@
-osrpg
-=====
-
-Open Source MMORPG
