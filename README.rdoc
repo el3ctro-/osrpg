@@ -1,7 +1,7 @@
-osrpg  
-Open Source MMORPG  
-Rails, Coffeescript, JQuery, Node.js  
- 
+osrpg
+Open Source MMORPG
+Rails, Coffeescript, JQuery, Node.js
+
 
 
 TO DO:
