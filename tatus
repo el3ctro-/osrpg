@@ -1,0 +1,16 @@
+[33mcommit 453d5424aad4187066a1434d8d19b5e852b4bc4e[m
+Author: el3ctro- <josh.el3@gmail.com>
+Date:   Tue Feb 4 22:02:30 2014 -0800
+
+    html changes
+
+[1mdiff --git a/app/views/users/index.html.erb b/app/views/users/index.html.erb[m
+[1mindex b47e6e4..53a598e 100644[m
+[1m--- a/app/views/users/index.html.erb[m
+[1m+++ b/app/views/users/index.html.erb[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-<div style="width:700px;background:url('assets/images/title.png');height:50px;">[m
+[32m+[m[32m<div style="width:700px;background:url('assets/title.png');height:50px;">[m
+ [m
+ </div>[m
+ <div style="width:500px;height:500px;background:url('assets/terrainmapcomplete512.png');float:left;">[m

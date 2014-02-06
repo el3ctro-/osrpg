@@ -39,3 +39,4 @@ case 6:
 
 //document.getElementById('yourhp').style.display = 'none';
 }
+
