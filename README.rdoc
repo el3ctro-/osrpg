@@ -1,11 +1,11 @@
-# osrpg
-# Open Source MMORPG
-# Rails, Coffeescript, JQuery, Node.js
-# 
-#
-#
-# TO DO:
-# * Many Things.
-#
-#
-# An open source project started by Josh and Nicholai
+# osrpg\n
+# Open Source MMORPG\n
+# Rails, Coffeescript, JQuery, Node.js\n
+# \n
+#\n
+#\n
+# TO DO:\n
+# * Many Things.\n
+#\n
+#\n
+# An open source project started by Josh and Nicholai\n
