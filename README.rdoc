@@ -5,7 +5,8 @@ Rails, Coffeescript, JQuery, Node.js
 
 
 TO DO:
- * Many Things.
-
+ * Move Monsters client-side
+ * Communicate monster movement to client-side from server
+ * Map keyboard keys to player movement
 
 An open source project started by Josh and Nicholai
