@@ -1,4 +1,6 @@
 Osrpg::Application.routes.draw do
+  get "welcome/new"
+  get "welcome/create"
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
