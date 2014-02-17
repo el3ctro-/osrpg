@@ -1,6 +1,5 @@
 Osrpg::Application.routes.draw do
-  get "welcome/new"
-  get "welcome/create"
+  get "welcome/index"
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -57,4 +56,5 @@ Osrpg::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+#  map.root :controller => 'Welcome', :action => :index
 end
