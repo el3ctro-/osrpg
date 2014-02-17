@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @counter = 1
+	@monster0 = 115
     @users = User.all
   end
 

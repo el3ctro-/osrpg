@@ -2,7 +2,18 @@
 
 </div>
 <div style="width:500px;height:500px;background:url('assets/terrainmapcomplete512.png');float:left;">
-<img src="assets/monsters/ghoul/0.png" id="monster0" style="position:fixed;">
+<div class="one"></div>
+<%
+
+399.times do 
+%>
+<div class="x<%= 
+ @counter += 1 %>" id="gamegrid"><div style="position:absolute;"><% if @monster0 == @counter %> <img src="assets/monsters/ghoul/0.png" id="monster0"><% end %></div>	</div>
+<%
+end
+%>
+
+<div style="position:absolute;" id="0"></div>
 </div>
 <div style="width:200px;background:#eee;float:left;padding-top:20px;" align="center">1 2 3 4 5
 <br>1 2 3 4 5

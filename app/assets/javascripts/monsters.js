@@ -33,12 +33,15 @@ case 10:
 });
 */
 
+/*
+
 function makeNewPosition(){
     
     // Get viewport dimensions (remove the dimension of the div)
     var h = $(window).height() - 10;
     var w = $(window).width() - 10;
-    
+ //   alert();
+	
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
     
@@ -72,9 +75,40 @@ function calcSpeed(prev, next) {
 
 }
 
+*/
+function animateMonster() {
+//    $( "#monster0" ).offset();
+
+    $( "#monster0" ).animate({ top: '+=50', left: 0}, 2500, function(){
+//  $( "#monster0" ).animate({ top: '+=50', left: '-=' + $( "#monster0" ).offset().left }, 2500, function(){
+	
+//	var oldq = $( "#monster0" ).offset();
+      animateMonster();        
+    });
+}
+	
+	
+function scrollToElement(pageElement) {    
+    var positionX = 0,         
+        positionY = 0;    
+
+    while(pageElement != null){        
+        positionX += pageElement.offsetLeft;        
+        positionY += pageElement.offsetTop;        
+        pageElement = pageElement.offsetParent;        
+        window.scrollTo(positionX, positionY);    
+    }
+}
+
+var pageElement = $( "#monster0" );
+scrollToElement(pageElement);
+
 
 $(document).ready(function(){
 
     animateMonster();
     
 });
+
+
+
