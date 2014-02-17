@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @counter = 1
-	@monster0 = 115
+	@monster0 = 15
     @users = User.all
   end
 
