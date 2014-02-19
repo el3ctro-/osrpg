@@ -79,7 +79,7 @@ function calcSpeed(prev, next) {
 function animateMonster() {
 //    $( "#monster0" ).offset();
 	
-    $( "#monster0" ).delay(5000).animate({ top: '+=20', left: 0}, 2500, function(){
+    $( "#monster0" ).delay(5000).animate({ top: '+=25', left: 0}, 2500, function(){
 //  $( "#monster0" ).animate({ top: '+=50', left: '-=' + $( "#monster0" ).offset().left }, 2500, function(){
 	
 //	var oldq = $( "#monster0" ).offset();
