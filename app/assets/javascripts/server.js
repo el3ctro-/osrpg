@@ -34,15 +34,16 @@ var newmonsterPosition = { position: 4, f: function() {
     return this.position;
 	}
 	};
+//var monsterObj = new newmonsterPosition;
 break;
 };
 
 },6);
 
 http.createServer(function (req, res) {
-
+var newmonsterPosition;
 var amonsterPosition = 15;
-var newmonsterPosition = { name: "monster0", position: monsters , a: "bc" };
+var monsterInfo = { name: "monster0", position: monsters[0] , monsterobject: monsterObj };
   res.writeHead(200, {"Content-Type": "application/json"});
 // var otherArray = ["item1", "item2"];
   var otherObject = { item1: "item1val", item2: "item2val" };
@@ -50,7 +51,7 @@ var newmonsterPosition = { name: "monster0", position: monsters , a: "bc" };
   var json = JSON.stringify({
 
    another: Math.floor((Math.random()*1000)+1),
-   payload: newmonsterPosition,
+   monsters: monsterInfo,
    testobj: otherObject
   }, null, 4);
   res.end(json);
