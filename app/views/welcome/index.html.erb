@@ -1,3 +1,18 @@
+<script>
+function runAjax() { 
+alert('running');
+	$.ajax({
+		type: "GET",
+		url: "/users.json",
+		dataType: "json",
+		success: function(data){
+			alert(data.name) // Will alert Max
+		}        
+	});
+}
+</script>
+
+
 <div style="margin-top:125px;">
 </div>
 <div style="margin: 0 auto; height:300px;width:375px;background-image:url('assets/loginscreen.png');border-left:7px dashed #eee;border-right:7px dashed #eee;border-top:7px solid #eee;border-bottom:7px solid #eee;" align="center">
@@ -5,7 +20,7 @@
 <form action="/users" method="GET">
 <input type="text" style="width:100px;margin-bottom:20px;"><br>
 <input type="text" style="width:100px;"><br>
-	<input type="image" src="assets/register.png" style="float:left;margin-left:20px;margin-top:20px;">
+	<img src="assets/register.png" style="float:left;margin-left:20px;margin-top:20px;" onclick="runAjax();">
 	<input type="image" src="assets/login.png" style="margin-left:-100px;margin-top:20px;" href="/users/">
 </form>
 	</div>

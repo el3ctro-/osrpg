@@ -1,60 +1,69 @@
 var http = require('http');
 
-// Roll to see if monster moves north, south, east, or west
-var monsters = [];
-var rollDice;
-var monsterPosition;
-var newmonsterPosition;
-monsterPosition = 0;
-var another;
-var whichmonster = 0;
-setInterval(function(){
-rollDice = Math.floor((Math.random()*4)+1);
-   switch (rollDice) {
-case 1:
-// North
-monsterPosition -= 20;
-monsters[whichmonster] = (monsterPosition);
-break;
-case 2:
-// East
-monsterPosition += 1;
-monsters[whichmonster] = (monsterPosition);
-break;
-case 3:
-// South
-monsterPosition += 20;
-monsters[whichmonster] = (monsterPosition);
-break;
-case 4:
-// West
-monsterPosition -= 1;
-monsters[whichmonster] = (monsterPosition);
-var newmonsterPosition = { position: 4, f: function() {
-    return this.position;
-	}
-	};
-//var monsterObj = new newmonsterPosition;
-break;
-};
+// Player data
+var players = [];
+var playerdata;
 
-},6);
+// Monster data
+var monsters = [];
+var newmonsterPosition;
+var whichmonster = 0;
+var howmanymonsters = 4;
+monsterdata = [];
+monsterdata[0] = { name: "monster0", position: 15, hitpoints: 10 };
+monsterdata[1] = {name: "monster1", position: 0, hitpoints: 10 };
+monsterdata[2] = { name: "monster2", position: 0, hitpoints: 10 };
+monsterdata[3] = { name: "monster3", position: 0, hitpoints: 10 };
+var rollDice;
+setInterval(function(){
+	for (var i=0;i<howmanymonsters;i++) {
+//monsterdata.push({name : "monster" + i, position: -= 20, hitpoints: 10});
+	// Roll to see if monster moves north, south, east, or west
+		rollDice = Math.floor((Math.random()*4)+1);
+			switch (rollDice) {
+			case 1:
+			// North
+			var newposition = monsterdata[i].position;
+			newposition -= 20;
+			monsterdata[i] = ({name : "monster" + i, position: newposition, hitpoints: 10});
+			break;
+			case 2:
+			// East
+			var newposition = monsterdata[i].position;
+			newposition += 1;
+			monsterdata[i] = ({name : "monster" + i, position: newposition, hitpoints: 10});
+			break;			case 3:
+
+			// South
+			var newposition = monsterdata[i].position;
+			newposition += 20;
+			monsterdata[i] = ({name : "monster" + i, position: newposition, hitpoints: 10});
+			break;
+			case 4:
+			// West
+			var newposition = monsterdata[i].position;
+			newposition -= 1;
+			monsterdata[i] = ({name : "monster" + i, position: newposition, hitpoints: 10});
+
+			break;
+		};
+	}	
+
+},5000);
+
 
 http.createServer(function (req, res) {
-var newmonsterPosition;
-var amonsterPosition = 15;
-var monsterInfo = { name: "monster0", position: monsters[0] , monsterobject: monsterObj };
-  res.writeHead(200, {"Content-Type": "application/json"});
-// var otherArray = ["item1", "item2"];
-  var otherObject = { item1: "item1val", item2: "item2val" };
 
-  var json = JSON.stringify({
 
-   another: Math.floor((Math.random()*1000)+1),
-   monsters: monsterInfo,
-   testobj: otherObject
+//	var monsterdata = { name: "monster0", position: newmonsterPosition };
+	res.writeHead(200, {"Content-Type": "application/json"});
+	var json = JSON.stringify({
+	howmanymonsters: howmanymonsters,
+	monsters: monsterdata,
   }, null, 4);
   res.end(json);
 
-}).listen(3000, "127.0.0.1");
+}).listen(2000, "127.0.0.1");
 console.log('Server running');
+
+//  Math.floor((Math.random()*1000)+1)

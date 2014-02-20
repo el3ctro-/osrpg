@@ -33,57 +33,52 @@ case 10:
 });
 */
 
-/*
 
-function makeNewPosition(){
-    
-    // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - 10;
-    var w = $(window).width() - 10;
- //   alert();
-	
-    var nh = Math.floor(Math.random() * h);
-    var nw = Math.floor(Math.random() * w);
-    
-    return [nh,nw];    
-    
+var howmanymonsters;
+var monsterpositon = [];
+var oldposition = [];
+
+setInterval(function() { 
+//alert('running');
+	$.ajax({
+		type: "GET",
+		url: "/nodeserver/show",
+		dataType: "json",
+		success: function(data){
+		howmanymonsters = data.howmanymonsters;
+
+			for (var i=0;i<howmanymonsters;i++) {
+			if (data.monsters[i].position !== oldposition[i]) { 
+				animateMonster(data.monsters[i].position);
+				}
+//				console.log(data.monsters[i].position);
+
+		}
+
+		}
+		
+//		error: function(xhr,err){
+//    alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+//    alert("responseText: "+xhr.responseText);
+//}
+	});
 }
-
-function animateMonster(){
-    var newq = makeNewPosition();
-    var oldq = $( "#monster0" ).offset();
-    var speed = calcSpeed([oldq.top, oldq.left], newq);
-    
-    $( "#monster0" ).animate({ top: newq[0], left: newq[1] }, speed, function(){
-      animateMonster();        
-    });
-    
-};
-
-function calcSpeed(prev, next) {
-    
-    var x = Math.abs(prev[1] - next[1]);
-    var y = Math.abs(prev[0] - next[0]);
-    
-    var greatest = x > y ? x : y;
-    
-    var speedModifier = 0.1;
-
-    var speed = Math.ceil(greatest/speedModifier);
-
-    return speed;
-
-}
-
-*/
-function animateMonster() {
+, 250);
+			//oldposition[i] = data.monsters[i].position;
+function animateMonster(newposition) {
 //    $( "#monster0" ).offset();
-	
+
+//	alert(howmanymonsters);
+  var monster0offset=$("#monster0").offset();
+//  	console.log(monster0offset.top);
+// console.log(monster0offset.top);
+
+//	if (newposition)
     $( "#monster0" ).delay(5000).animate({ top: '+=25', left: 0}, 2500, function(){
 //  $( "#monster0" ).animate({ top: '+=50', left: '-=' + $( "#monster0" ).offset().left }, 2500, function(){
 	
 //	var oldq = $( "#monster0" ).offset();
-      animateMonster();        
+//      animateMonster();        
     });
 }
 	
@@ -104,11 +99,11 @@ var pageElement = $( "#monster0" );
 scrollToElement(pageElement);
 
 
-$(document).ready(function(){
+//$(document).ready(function(){
 
-    animateMonster();
+//    animateMonster();
     
-});
+//});
 
 
 

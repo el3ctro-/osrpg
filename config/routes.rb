@@ -1,4 +1,5 @@
 Osrpg::Application.routes.draw do
+  get "nodeserver/show"
 #  get "welcome/index"
   resources :users
   get '/monsters', to: 'welcome#monsters'
