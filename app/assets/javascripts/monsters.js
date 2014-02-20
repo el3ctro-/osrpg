@@ -37,6 +37,22 @@ case 10:
 var howmanymonsters;
 var monsterpositon = [];
 var oldposition = [];
+var whichmonster = [];
+
+// Get old positions statically
+
+	$.ajax({
+		type: "GET",
+		url: "/nodeserver/show",
+		dataType: "json",
+		success: function(data){
+			for (var i=0;i<data.howmanymonsters;i++) {
+			oldposition[i] = data.monsters[i].position;
+			console.log("Got old position " + oldposition[i]);
+			}
+
+}
+});
 
 setInterval(function() { 
 //alert('running');
@@ -48,8 +64,22 @@ setInterval(function() {
 		howmanymonsters = data.howmanymonsters;
 
 			for (var i=0;i<howmanymonsters;i++) {
+//			console.log(oldposition);
 			if (data.monsters[i].position !== oldposition[i]) { 
-				animateMonster(data.monsters[i].position);
+
+				console.log("Old position: " + oldposition[i] + "..New Position: " + data.monsters[i].position);
+//				animateMonster(data.monsters[i].position, i);
+				console.log("Moving monster " + i);
+				if ((data.monsters[i].position) == (oldposition[i] + 20))
+				console.log('Detected north movement');
+				if ((data.monsters[i].position) == (oldposition[i] - 20)) {
+				console.log('Detected south movement');
+				$( "#monster" + i ).delay(10).animate({ top: '+=25', left: 0}, 2500);
+				}
+				oldposition[i] = data.monsters[i].position;
+				} else {
+
+//				console.log(oldposition[i]);
 				}
 //				console.log(data.monsters[i].position);
 
@@ -63,24 +93,26 @@ setInterval(function() {
 //}
 	});
 }
-, 250);
+, 1000);
 			//oldposition[i] = data.monsters[i].position;
-function animateMonster(newposition) {
+//function animateMonster(newposition, monster) {
 //    $( "#monster0" ).offset();
 
 //	alert(howmanymonsters);
-  var monster0offset=$("#monster0").offset();
+//  var monster0offset=$("#monster0").offset();
 //  	console.log(monster0offset.top);
 // console.log(monster0offset.top);
 
 //	if (newposition)
-    $( "#monster0" ).delay(5000).animate({ top: '+=25', left: 0}, 2500, function(){
+//console.log(monster);
+
+ //   $( "#monster" + monster ).delay(5000).animate({ top: '+=25', left: 0}, 2500, function(){
 //  $( "#monster0" ).animate({ top: '+=50', left: '-=' + $( "#monster0" ).offset().left }, 2500, function(){
 	
 //	var oldq = $( "#monster0" ).offset();
 //      animateMonster();        
-    });
-}
+ //   });
+//}
 	
 	
 function scrollToElement(pageElement) {    
