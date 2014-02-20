@@ -72,19 +72,19 @@ setInterval(function() {
 				console.log("Moving monster " + i);
 				if ((data.monsters[i].position) == (oldposition[i] - 20)) {
 				console.log('Detected north movement');
-				$( "#monster" + i ).delay(10).animate({ top: '-=25', left: 0}, 2500);
+				$( "#monster" + i ).delay(10).animate({ top: '-=25'}, 2500);
 				}
 				if ((data.monsters[i].position) == (oldposition[i] + 20)) {
 				console.log('Detected south movement');
-				$( "#monster" + i ).delay(10).animate({ top: '+=25', left: 0}, 2500);
+				$( "#monster" + i ).delay(10).animate({ top: '+=25'}, 2500);
 				}
 				if ((data.monsters[i].position) == (oldposition[i] + 1)) {
 				console.log('Detected east movement');
-				$( "#monster" + i ).delay(10).animate({ right: '+=25', left: 0}, 2500);
+				$( "#monster" + i ).delay(10).animate({ left: "-=25"}, 2500);
 				}
 				if ((data.monsters[i].position) == (oldposition[i] - 1)) {
 				console.log('Detected west movement');
-				$( "#monster" + i ).delay(10).animate({ left: '-=25', left: 0}, 2500);
+				$( "#monster" + i ).delay(10).animate({ left: "+=25"}, 2500);
 				}
 				oldposition[i] = data.monsters[i].position;
 				} else {
