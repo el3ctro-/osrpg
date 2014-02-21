@@ -7,8 +7,9 @@
 
 399.times do 
 %>
-<div class="x<%= 
- @counter += 1 %>" id="gamegrid"><div style="position:absolute;"><% if @monster0 == @counter %> <img src="assets/monsters/ghoul/0.png" id="monster0"><% end %></div>	</div>
+
+<div id="pos<%= 
+ @counter += 1 %>" class="gamegrid"><% if @monster0 == @counter %><!-- <img src="assets/monsters/ghoul/0.png" id="monster0">--><% end %>	</div>
 <%
 end
 %>

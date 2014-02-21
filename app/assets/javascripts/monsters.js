@@ -40,20 +40,34 @@ var oldposition = [];
 var whichmonster = [];
 
 // Get old positions statically
-
+$( document ).ready(function() {
+	console.log('Document is ready.');
+//	document.getElementById("pos" + 225).innerHTML = '<div style="position:absolute;">abc</div>';
 	$.ajax({
 		type: "GET",
 		url: "/nodeserver/show",
 		dataType: "json",
 		success: function(data){
+//		alert(data.howmanymonsters);
+		var oldposition = [];
 			for (var i=0;i<data.howmanymonsters;i++) {
+			console.log('Step # ' + i);
+			oldposition[0] = data.monsters[0].position;
+	//		alert(oldposition[0]);
 			oldposition[i] = data.monsters[i].position;
+	//					alert(oldposition[i]);
 			console.log("Got old position " + oldposition[i]);
+			var pos = oldposition[0];
+			console.log("I found" + pos);
+			console.log("Old position: " + oldposition);
+//			document.getElementById(pos).innerHTML = 'test';
+			document.getElementById("pos" + oldposition[i]).innerHTML = '<img src="assets/monsters/ghoul/0.png" id="monster' + i + '">';
 			}
 
 }
 });
 
+// Start updating coordinates
 setInterval(function() { 
 //alert('running');
 	$.ajax({
@@ -104,6 +118,10 @@ setInterval(function() {
 	});
 }
 , 1000);
+
+
+});
+
 			//oldposition[i] = data.monsters[i].position;
 //function animateMonster(newposition, monster) {
 //    $( "#monster0" ).offset();
