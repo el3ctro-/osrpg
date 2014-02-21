@@ -51,17 +51,19 @@ $( document ).ready(function() {
 //		alert(data.howmanymonsters);
 		var oldposition = [];
 			for (var i=0;i<data.howmanymonsters;i++) {
+			parseInt(i);
+			
 			console.log('Step # ' + i);
-			oldposition[0] = data.monsters[0].position;
+			oldposition[i] = parseInt(data.monsters[i].position);
 	//		alert(oldposition[0]);
-			oldposition[i] = data.monsters[i].position;
+	//		oldposition[i] = data.monsters[i].position;
 	//					alert(oldposition[i]);
 			console.log("Got old position " + oldposition[i]);
 			var pos = oldposition[0];
 			console.log("I found" + pos);
 			console.log("Old position: " + oldposition);
 //			document.getElementById(pos).innerHTML = 'test';
-			document.getElementById("pos" + oldposition[i]).innerHTML = '<img src="assets/monsters/ghoul/0.png" id="monster' + i + '">';
+			document.getElementById("pos" + oldposition[i]).innerHTML = '<div style="position:absolute;"><img src="assets/monsters/ghoul/0.png" id="monster' + i + '"></div>';
 			}
 
 }
